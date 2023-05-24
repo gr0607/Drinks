@@ -169,10 +169,10 @@ class DrinkViewController: UIViewController {
         }
 
         drinksCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(instructionTextView.snp.bottom).offset(30)
+            make.top.equalTo(instructionTextView.snp.bottom).offset(5)
             make.left.equalTo(view.snp.left).offset(16)
             make.right.equalTo(view.snp.right).offset(-16)
-            make.bottom.equalTo(view.snp.bottom).offset(-60)
+            make.bottom.equalTo(view.snp.bottom).offset(-90)
         }
 
     }
@@ -247,6 +247,6 @@ extension DrinkViewController: UICollectionViewDataSource {
 
 extension DrinkViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 120)
+        return CGSize(width: 110, height: 110)
     }
 }

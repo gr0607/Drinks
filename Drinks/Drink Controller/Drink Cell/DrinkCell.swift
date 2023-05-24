@@ -37,7 +37,7 @@ class DrinkCell: UICollectionViewCell {
 
         drinkImageView.snp.makeConstraints { make in
             make.height.width.equalTo(90)
-            make.top.left.right.equalToSuperview()
+            make.top.centerX.equalToSuperview()
         }
 
         drinkNameLabel.snp.makeConstraints { make in

@@ -42,10 +42,14 @@ class SplashViewController: UIViewController {
         setupUI()
 
         drinkViewModel.firstDownload = { [weak self] in
-            let vc = DrinkViewController()
+            let vc = MainTabBarController()
+
+            vc.drinkViewModel = self?.drinkViewModel
+            vc.drinkViewModel = self?.drinkViewModel
             vc.modalPresentationStyle = .fullScreen
             vc.modalTransitionStyle = .coverVertical
-            vc.drinkViewModel = self?.drinkViewModel
+
+
             self?.present(vc, animated: true)
         }
     }

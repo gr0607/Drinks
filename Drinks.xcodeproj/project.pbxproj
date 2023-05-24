@@ -19,6 +19,8 @@
 		847DA5F32A1E6CA400520051 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 847DA5F22A1E6CA400520051 /* SnapKit */; };
 		847DA5F52A1E6D9000520051 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5F42A1E6D9000520051 /* SceneDelegate.swift */; };
 		847DA5F72A1E6D9600520051 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5F62A1E6D9600520051 /* AppDelegate.swift */; };
+		847DA5F92A1E758200520051 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5F82A1E758200520051 /* MainTabBarController.swift */; };
+		847DA5FC2A1E80FD00520051 /* FavoritesViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5FB2A1E80FD00520051 /* FavoritesViewCotroller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		847DA5EF2A1E6C6300520051 /* Drink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		847DA5F42A1E6D9000520051 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		847DA5F62A1E6D9600520051 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		847DA5F82A1E758200520051 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		847DA5FB2A1E80FD00520051 /* FavoritesViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewCotroller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +72,8 @@
 		8455ACC62A1DD2BA003F61A3 /* Drinks */ = {
 			isa = PBXGroup;
 			children = (
-				847DA5D92A1E6AB600520051 /* Splash Screen */,
+				847DA5FA2A1E80A100520051 /* Liked Drinks Controller */,
+				847DA5D92A1E6AB600520051 /* Start App */,
 				847DA5DC2A1E6ADC00520051 /* Models */,
 				847DA5DD2A1E6AED00520051 /* Drink Controller */,
 				847DA5DB2A1E6ACE00520051 /* Network Service */,
@@ -79,12 +84,13 @@
 			path = Drinks;
 			sourceTree = "<group>";
 		};
-		847DA5D92A1E6AB600520051 /* Splash Screen */ = {
+		847DA5D92A1E6AB600520051 /* Start App */ = {
 			isa = PBXGroup;
 			children = (
 				847DA5E72A1E6BB400520051 /* SplashViewController.swift */,
+				847DA5F82A1E758200520051 /* MainTabBarController.swift */,
 			);
-			path = "Splash Screen";
+			path = "Start App";
 			sourceTree = "<group>";
 		};
 		847DA5DA2A1E6AC600520051 /* ViewModels */ = {
@@ -146,6 +152,14 @@
 				847DA5E32A1E6B9E00520051 /* DrinkCell.swift */,
 			);
 			path = "Drink Cell";
+			sourceTree = "<group>";
+		};
+		847DA5FA2A1E80A100520051 /* Liked Drinks Controller */ = {
+			isa = PBXGroup;
+			children = (
+				847DA5FB2A1E80FD00520051 /* FavoritesViewCotroller.swift */,
+			);
+			path = "Liked Drinks Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,7 +239,9 @@
 			files = (
 				847DA5F02A1E6C6300520051 /* Drink.swift in Sources */,
 				847DA5EE2A1E6BCF00520051 /* DrinkViewModel.swift in Sources */,
+				847DA5F92A1E758200520051 /* MainTabBarController.swift in Sources */,
 				847DA5EC2A1E6BC600520051 /* NetworkRequest.swift in Sources */,
+				847DA5FC2A1E80FD00520051 /* FavoritesViewCotroller.swift in Sources */,
 				847DA5F72A1E6D9600520051 /* AppDelegate.swift in Sources */,
 				847DA5E42A1E6B9E00520051 /* DrinkCell.swift in Sources */,
 				847DA5E82A1E6BB400520051 /* SplashViewController.swift in Sources */,
