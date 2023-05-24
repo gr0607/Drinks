@@ -3,27 +3,38 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8455ACC82A1DD2BA003F61A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455ACC72A1DD2BA003F61A3 /* AppDelegate.swift */; };
-		8455ACCA2A1DD2BA003F61A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455ACC92A1DD2BA003F61A3 /* SceneDelegate.swift */; };
-		8455ACCC2A1DD2BA003F61A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455ACCB2A1DD2BA003F61A3 /* ViewController.swift */; };
-		8455ACCF2A1DD2BA003F61A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8455ACCD2A1DD2BA003F61A3 /* Main.storyboard */; };
 		8455ACD12A1DD2BB003F61A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8455ACD02A1DD2BB003F61A3 /* Assets.xcassets */; };
 		8455ACD42A1DD2BB003F61A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8455ACD22A1DD2BB003F61A3 /* LaunchScreen.storyboard */; };
+		847DA5E12A1E6B6B00520051 /*  UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5E02A1E6B6B00520051 /*  UIColor+Extensions.swift */; };
+		847DA5E42A1E6B9E00520051 /* DrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5E32A1E6B9E00520051 /* DrinkCell.swift */; };
+		847DA5E62A1E6BA700520051 /* DrinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5E52A1E6BA700520051 /* DrinkViewController.swift */; };
+		847DA5E82A1E6BB400520051 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5E72A1E6BB400520051 /* SplashViewController.swift */; };
+		847DA5EC2A1E6BC600520051 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5EB2A1E6BC600520051 /* NetworkRequest.swift */; };
+		847DA5EE2A1E6BCF00520051 /* DrinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5ED2A1E6BCF00520051 /* DrinkViewModel.swift */; };
+		847DA5F02A1E6C6300520051 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5EF2A1E6C6300520051 /* Drink.swift */; };
+		847DA5F32A1E6CA400520051 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 847DA5F22A1E6CA400520051 /* SnapKit */; };
+		847DA5F52A1E6D9000520051 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5F42A1E6D9000520051 /* SceneDelegate.swift */; };
+		847DA5F72A1E6D9600520051 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5F62A1E6D9600520051 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8455ACC42A1DD2BA003F61A3 /* Drinks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drinks.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8455ACC72A1DD2BA003F61A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8455ACC92A1DD2BA003F61A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8455ACCB2A1DD2BA003F61A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8455ACCE2A1DD2BA003F61A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8455ACD02A1DD2BB003F61A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8455ACD32A1DD2BB003F61A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8455ACD52A1DD2BB003F61A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		847DA5E02A1E6B6B00520051 /*  UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = " UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		847DA5E32A1E6B9E00520051 /* DrinkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkCell.swift; sourceTree = "<group>"; };
+		847DA5E52A1E6BA700520051 /* DrinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkViewController.swift; sourceTree = "<group>"; };
+		847DA5E72A1E6BB400520051 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		847DA5EB2A1E6BC600520051 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		847DA5ED2A1E6BCF00520051 /* DrinkViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkViewModel.swift; sourceTree = "<group>"; };
+		847DA5EF2A1E6C6300520051 /* Drink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		847DA5F42A1E6D9000520051 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		847DA5F62A1E6D9600520051 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847DA5F32A1E6CA400520051 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +68,84 @@
 		8455ACC62A1DD2BA003F61A3 /* Drinks */ = {
 			isa = PBXGroup;
 			children = (
-				8455ACC72A1DD2BA003F61A3 /* AppDelegate.swift */,
-				8455ACC92A1DD2BA003F61A3 /* SceneDelegate.swift */,
-				8455ACCB2A1DD2BA003F61A3 /* ViewController.swift */,
-				8455ACCD2A1DD2BA003F61A3 /* Main.storyboard */,
-				8455ACD02A1DD2BB003F61A3 /* Assets.xcassets */,
-				8455ACD22A1DD2BB003F61A3 /* LaunchScreen.storyboard */,
-				8455ACD52A1DD2BB003F61A3 /* Info.plist */,
+				847DA5D92A1E6AB600520051 /* Splash Screen */,
+				847DA5DC2A1E6ADC00520051 /* Models */,
+				847DA5DD2A1E6AED00520051 /* Drink Controller */,
+				847DA5DB2A1E6ACE00520051 /* Network Service */,
+				847DA5DA2A1E6AC600520051 /* ViewModels */,
+				847DA5DE2A1E6B1100520051 /* Extensions */,
+				847DA5DF2A1E6B1B00520051 /* Supporting Files */,
 			);
 			path = Drinks;
+			sourceTree = "<group>";
+		};
+		847DA5D92A1E6AB600520051 /* Splash Screen */ = {
+			isa = PBXGroup;
+			children = (
+				847DA5E72A1E6BB400520051 /* SplashViewController.swift */,
+			);
+			path = "Splash Screen";
+			sourceTree = "<group>";
+		};
+		847DA5DA2A1E6AC600520051 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				847DA5ED2A1E6BCF00520051 /* DrinkViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		847DA5DB2A1E6ACE00520051 /* Network Service */ = {
+			isa = PBXGroup;
+			children = (
+				847DA5EB2A1E6BC600520051 /* NetworkRequest.swift */,
+			);
+			path = "Network Service";
+			sourceTree = "<group>";
+		};
+		847DA5DC2A1E6ADC00520051 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				847DA5EF2A1E6C6300520051 /* Drink.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		847DA5DD2A1E6AED00520051 /* Drink Controller */ = {
+			isa = PBXGroup;
+			children = (
+				847DA5E22A1E6B9100520051 /* Drink Cell */,
+				847DA5E52A1E6BA700520051 /* DrinkViewController.swift */,
+			);
+			path = "Drink Controller";
+			sourceTree = "<group>";
+		};
+		847DA5DE2A1E6B1100520051 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				847DA5E02A1E6B6B00520051 /*  UIColor+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		847DA5DF2A1E6B1B00520051 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				847DA5F42A1E6D9000520051 /* SceneDelegate.swift */,
+				847DA5F62A1E6D9600520051 /* AppDelegate.swift */,
+				8455ACD02A1DD2BB003F61A3 /* Assets.xcassets */,
+				8455ACD52A1DD2BB003F61A3 /* Info.plist */,
+				8455ACD22A1DD2BB003F61A3 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		847DA5E22A1E6B9100520051 /* Drink Cell */ = {
+			isa = PBXGroup;
+			children = (
+				847DA5E32A1E6B9E00520051 /* DrinkCell.swift */,
+			);
+			path = "Drink Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +164,9 @@
 			dependencies = (
 			);
 			name = Drinks;
+			packageProductDependencies = (
+				847DA5F22A1E6CA400520051 /* SnapKit */,
+			);
 			productName = Drinks;
 			productReference = 8455ACC42A1DD2BA003F61A3 /* Drinks.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +194,9 @@
 				Base,
 			);
 			mainGroup = 8455ACBB2A1DD2BA003F61A3;
+			packageReferences = (
+				847DA5F12A1E6CA400520051 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 8455ACC52A1DD2BA003F61A3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,7 +213,6 @@
 			files = (
 				8455ACD42A1DD2BB003F61A3 /* LaunchScreen.storyboard in Resources */,
 				8455ACD12A1DD2BB003F61A3 /* Assets.xcassets in Resources */,
-				8455ACCF2A1DD2BA003F61A3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +223,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8455ACCC2A1DD2BA003F61A3 /* ViewController.swift in Sources */,
-				8455ACC82A1DD2BA003F61A3 /* AppDelegate.swift in Sources */,
-				8455ACCA2A1DD2BA003F61A3 /* SceneDelegate.swift in Sources */,
+				847DA5F02A1E6C6300520051 /* Drink.swift in Sources */,
+				847DA5EE2A1E6BCF00520051 /* DrinkViewModel.swift in Sources */,
+				847DA5EC2A1E6BC600520051 /* NetworkRequest.swift in Sources */,
+				847DA5F72A1E6D9600520051 /* AppDelegate.swift in Sources */,
+				847DA5E42A1E6B9E00520051 /* DrinkCell.swift in Sources */,
+				847DA5E82A1E6BB400520051 /* SplashViewController.swift in Sources */,
+				847DA5E12A1E6B6B00520051 /*  UIColor+Extensions.swift in Sources */,
+				847DA5E62A1E6BA700520051 /* DrinkViewController.swift in Sources */,
+				847DA5F52A1E6D9000520051 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8455ACCD2A1DD2BA003F61A3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8455ACCE2A1DD2BA003F61A3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8455ACD22A1DD2BB003F61A3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,6 +300,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -271,6 +356,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -287,7 +373,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Drinks/Info.plist;
+				INFOPLIST_FILE = "Drinks/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +391,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Drinks/Info.plist;
+				INFOPLIST_FILE = "Drinks/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,6 +425,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		847DA5F12A1E6CA400520051 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		847DA5F22A1E6CA400520051 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 847DA5F12A1E6CA400520051 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8455ACBC2A1DD2BA003F61A3 /* Project object */;
 }

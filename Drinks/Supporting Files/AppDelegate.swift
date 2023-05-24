@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Drinks
+//  Coctails
 //
-//  Created by admin on 24.05.2023.
+//  Created by admin on 28.03.2023.
 //
 
 import UIKit
@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         return true
     }
 
