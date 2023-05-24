@@ -25,6 +25,14 @@ class DrinkViewController: UIViewController {
 
     public var drinkViewModel: DrinkViewModel?
 
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = " Search..."
+        searchBar.sizeToFit()
+        searchBar.isTranslucent = false
+        return searchBar
+    }()
+
     private lazy var titleLable: UILabel = {
         let label = UILabel()
         label.text = drinkViewModel?.drinkName
@@ -116,6 +124,9 @@ class DrinkViewController: UIViewController {
     func setupUI() {
         view.backgroundColor = .lightBrownBackgroundColor
 
+        navigationController?.navigationBar.barTintColor = .lightBrownBackgroundColor
+        navigationItem.titleView = searchBar
+  
         view.addSubview(titleLable)
         view.addSubview(imageCoctail)
         view.addSubview(instructionNameLabel)
@@ -130,7 +141,7 @@ class DrinkViewController: UIViewController {
     func makeConstraints() {
         titleLable.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
-            make.top.equalTo(view.snp.top).offset(100)
+            make.top.equalTo(view.snp.top).offset(120)
         }
 
         imageCoctail.snp.makeConstraints { make in

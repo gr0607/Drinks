@@ -24,12 +24,13 @@ class MainTabBarController: UITabBarController {
 
     func configure() {
         let drinkVC = DrinkViewController()
+        let navVC = UINavigationController(rootViewController: drinkVC)
         drinkVC.drinkViewModel = self.drinkViewModel
         drinkVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")
 
         let favoritesVC = FavoritesViewController()
         favoritesVC.tabBarItem.image = UIImage(systemName: "heart")
 
-        viewControllers = [drinkVC, favoritesVC]
+        viewControllers = [navVC, favoritesVC]
     }
 }
