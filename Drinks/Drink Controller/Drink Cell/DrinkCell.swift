@@ -49,5 +49,12 @@ class DrinkCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    func configureCell(with entity: DrinkEntity) {
+        guard let data = entity.image, let image = UIImage(data: data) else { return }
+
+        self.drinkImageView.image = image
+        self.drinkNameLabel.text = entity.name
+    }
     
 }

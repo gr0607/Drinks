@@ -108,6 +108,8 @@ class DrinkViewController: UIViewController {
         return cv
     }()
 
+    
+
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -194,6 +196,10 @@ class DrinkViewController: UIViewController {
         drinkViewModel?.updateScreen = { [weak self] in
             self?.updateUI()
         }
+
+        drinkViewModel?.reloadCollectionView = {
+            self.drinksCollectionView.reloadData()
+        }
     }
 
     func updateUI() {
@@ -245,11 +251,16 @@ extension DrinkViewController: UITableViewDelegate {
 
 extension DrinkViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return drinkViewModel?.getCountOfDrinks() ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseDrinkIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseDrinkIdentifier, for: indexPath) as? DrinkCell,
+              let entity = drinkViewModel?.getDrinkEntity(forIndexPath: indexPath)
+              else { return UICollectionViewCell()}
+
+        cell.configureCell(with: entity)
+
         return cell
     }
 }

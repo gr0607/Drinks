@@ -15,6 +15,7 @@ class DrinkViewModel {
     var firstDownload: (()->(Void))?
     var firstDownloaded = true
     var updateScreen : (()-> (Void))?
+    var reloadCollectionView: (() -> (Void))?
 
     public var coreDataStack = CoreDataStack(modelName: "Drinks")
     public var drinkEntities = [DrinkEntity]()
@@ -27,9 +28,12 @@ class DrinkViewModel {
                 firstDownload?()
                     firstDownloaded = false
             coreDataStack.saveEntityFrom(drinkViewModel: self)
+            getEntities()
+
         } else {
                 updateScreen?()
             coreDataStack.saveEntityFrom(drinkViewModel: self)
+            getEntities()
             }
         }
     }
@@ -71,11 +75,18 @@ class DrinkViewModel {
 
 //MARK: - Work with CollectionView
 extension DrinkViewModel {
-    func getCountOfItems() -> Int {
+    func getCountOfDrinks() -> Int {
         return drinkEntities.count
     }
 
+    func getDrinkEntity(forIndexPath indexPath: IndexPath) -> DrinkEntity {
+        return drinkEntities[indexPath.row]
+    }
 
+    func getEntities() {
+        self.drinkEntities = coreDataStack.getDrinksEntity()
+        self.reloadCollectionView?()
+    }
 
 }
 

@@ -52,4 +52,20 @@ class CoreDataStack {
         saveContext()
     }
 
+    func getDrinksEntity() -> [DrinkEntity] {
+        let fetchRequest: NSFetchRequest<DrinkEntity> = DrinkEntity.fetchRequest()
+        let dateDecriptor = NSSortDescriptor(key: #keyPath(DrinkEntity.date), ascending: false)
+        fetchRequest.sortDescriptors = [dateDecriptor]
+
+        do {
+            let results = try self.managedContext.fetch(fetchRequest)
+            return results
+        } catch let error {
+            print(error)
+            return [DrinkEntity]()
+        }
+    }
+
+
+
 }
