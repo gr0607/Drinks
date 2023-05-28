@@ -21,6 +21,10 @@
 		847DA5F72A1E6D9600520051 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5F62A1E6D9600520051 /* AppDelegate.swift */; };
 		847DA5F92A1E758200520051 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5F82A1E758200520051 /* MainTabBarController.swift */; };
 		847DA5FC2A1E80FD00520051 /* FavoritesViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847DA5FB2A1E80FD00520051 /* FavoritesViewCotroller.swift */; };
+		84F845A92A2326020072319A /* Drinks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84F845A72A2326020072319A /* Drinks.xcdatamodeld */; };
+		84F845B52A232A0C0072319A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F845B42A232A0C0072319A /* CoreDataStack.swift */; };
+		84F845B82A232DF20072319A /* DrinkEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F845B62A232DF20072319A /* DrinkEntity+CoreDataClass.swift */; };
+		84F845B92A232DF20072319A /* DrinkEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F845B72A232DF20072319A /* DrinkEntity+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,10 @@
 		847DA5F62A1E6D9600520051 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		847DA5F82A1E758200520051 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		847DA5FB2A1E80FD00520051 /* FavoritesViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewCotroller.swift; sourceTree = "<group>"; };
+		84F845A82A2326020072319A /* Drinks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Drinks.xcdatamodel; sourceTree = "<group>"; };
+		84F845B42A232A0C0072319A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		84F845B62A232DF20072319A /* DrinkEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrinkEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		84F845B72A232DF20072319A /* DrinkEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrinkEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,12 +80,13 @@
 		8455ACC62A1DD2BA003F61A3 /* Drinks */ = {
 			isa = PBXGroup;
 			children = (
+				84F845AA2A2326220072319A /* CoreData */,
+				847DA5DA2A1E6AC600520051 /* ViewModels */,
 				847DA5FA2A1E80A100520051 /* Liked Drinks Controller */,
 				847DA5D92A1E6AB600520051 /* Start App */,
 				847DA5DC2A1E6ADC00520051 /* Models */,
 				847DA5DD2A1E6AED00520051 /* Drink Controller */,
 				847DA5DB2A1E6ACE00520051 /* Network Service */,
-				847DA5DA2A1E6AC600520051 /* ViewModels */,
 				847DA5DE2A1E6B1100520051 /* Extensions */,
 				847DA5DF2A1E6B1B00520051 /* Supporting Files */,
 			);
@@ -137,6 +146,7 @@
 		847DA5DF2A1E6B1B00520051 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84F845A72A2326020072319A /* Drinks.xcdatamodeld */,
 				847DA5F42A1E6D9000520051 /* SceneDelegate.swift */,
 				847DA5F62A1E6D9600520051 /* AppDelegate.swift */,
 				8455ACD02A1DD2BB003F61A3 /* Assets.xcassets */,
@@ -160,6 +170,24 @@
 				847DA5FB2A1E80FD00520051 /* FavoritesViewCotroller.swift */,
 			);
 			path = "Liked Drinks Controller";
+			sourceTree = "<group>";
+		};
+		84F845AA2A2326220072319A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				84F845B32A23299E0072319A /* Entity */,
+				84F845B42A232A0C0072319A /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		84F845B32A23299E0072319A /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				84F845B62A232DF20072319A /* DrinkEntity+CoreDataClass.swift */,
+				84F845B72A232DF20072319A /* DrinkEntity+CoreDataProperties.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,17 +265,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F845B52A232A0C0072319A /* CoreDataStack.swift in Sources */,
 				847DA5F02A1E6C6300520051 /* Drink.swift in Sources */,
 				847DA5EE2A1E6BCF00520051 /* DrinkViewModel.swift in Sources */,
 				847DA5F92A1E758200520051 /* MainTabBarController.swift in Sources */,
+				84F845B92A232DF20072319A /* DrinkEntity+CoreDataProperties.swift in Sources */,
 				847DA5EC2A1E6BC600520051 /* NetworkRequest.swift in Sources */,
 				847DA5FC2A1E80FD00520051 /* FavoritesViewCotroller.swift in Sources */,
 				847DA5F72A1E6D9600520051 /* AppDelegate.swift in Sources */,
+				84F845A92A2326020072319A /* Drinks.xcdatamodeld in Sources */,
 				847DA5E42A1E6B9E00520051 /* DrinkCell.swift in Sources */,
 				847DA5E82A1E6BB400520051 /* SplashViewController.swift in Sources */,
 				847DA5E12A1E6B6B00520051 /*  UIColor+Extensions.swift in Sources */,
 				847DA5E62A1E6BA700520051 /* DrinkViewController.swift in Sources */,
 				847DA5F52A1E6D9000520051 /* SceneDelegate.swift in Sources */,
+				84F845B82A232DF20072319A /* DrinkEntity+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +492,19 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		84F845A72A2326020072319A /* Drinks.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84F845A82A2326020072319A /* Drinks.xcdatamodel */,
+			);
+			currentVersion = 84F845A82A2326020072319A /* Drinks.xcdatamodel */;
+			path = Drinks.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8455ACBC2A1DD2BA003F61A3 /* Project object */;
 }

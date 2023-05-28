@@ -10,9 +10,14 @@ import UIKit
 
 class DrinkViewModel {
 
+//MARK: - Properties
+
     var firstDownload: (()->(Void))?
     var firstDownloaded = true
     var updateScreen : (()-> (Void))?
+
+    public var coreDataStack = CoreDataStack(modelName: "Drinks")
+    public var drinkEntities = [DrinkEntity]()
 
     public var drink: Drink? 
 
@@ -21,8 +26,10 @@ class DrinkViewModel {
         if firstDownloaded {
                 firstDownload?()
                     firstDownloaded = false
+            coreDataStack.saveEntityFrom(drinkViewModel: self)
         } else {
                 updateScreen?()
+            coreDataStack.saveEntityFrom(drinkViewModel: self)
             }
         }
     }
@@ -38,6 +45,8 @@ class DrinkViewModel {
     public var drinkImageUrl: String {
         drink?.imageURL ?? ""
     }
+
+//MARK: - Functions
 
     func fetchDrink() {
         let url = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/random.php")!
@@ -60,7 +69,18 @@ class DrinkViewModel {
 
 }
 
-//MARK: - Ingridients and Measures
+//MARK: - Work with CollectionView
+extension DrinkViewModel {
+    func getCountOfItems() -> Int {
+        return drinkEntities.count
+    }
+
+
+
+}
+
+
+//MARK: - Helper for Ingridients and Measures
 
 extension DrinkViewModel {
     fileprivate var ingridientsWithoutNil: [String] {

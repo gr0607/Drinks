@@ -1,0 +1,55 @@
+//
+//  CoreDataStack.swift
+//  Drinks
+//
+//  Created by admin on 28.05.2023.
+//
+
+import Foundation
+import CoreData
+
+class CoreDataStack {
+    private let modelName: String
+
+    init(modelName: String) {
+        self.modelName = modelName
+    }
+
+    lazy var managedContext: NSManagedObjectContext = {
+        return self.storeContainer.viewContext
+    }()
+
+    private lazy var storeContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: self.modelName)
+        container.loadPersistentStores { _, error in
+            if let error = error as NSError? {
+                print("unresolved error \(error)")
+            }
+        }
+        return container
+    }()
+
+    func saveContext() {
+        guard managedContext.hasChanges else { return }
+
+        do {
+            try managedContext.save()
+        } catch let nserror as NSError {
+            print("unresolved error")
+        }
+    }
+
+     func saveEntityFrom(drinkViewModel: DrinkViewModel) {
+        let drinkEntity = DrinkEntity(context: self.managedContext)
+
+        drinkEntity.name = drinkViewModel.drinkName
+        drinkEntity.instructions = drinkViewModel.drinkInstructions
+        drinkEntity.date = Date()
+        drinkEntity.image = drinkViewModel.drinkImage?.pngData()
+        drinkEntity.ingridients = drinkViewModel.ingridients
+        drinkEntity.measures = drinkViewModel.mesasures
+
+        saveContext()
+    }
+
+}
