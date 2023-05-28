@@ -14,7 +14,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super .viewDidLoad()
         view.backgroundColor = .yellow
-
+        self.tabBar.barTintColor = .lightBrownBackgroundColor
     }
 
     override func viewWillAppear(_ animated: Bool) {

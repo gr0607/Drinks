@@ -38,6 +38,7 @@ class DrinkViewController: UIViewController {
         label.text = drinkViewModel?.drinkName
         label.font = UIFont(name: "Palatino", size: 35)
         label.textColor = .textColor
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
@@ -103,7 +104,7 @@ class DrinkViewController: UIViewController {
         layout.scrollDirection = .horizontal
 
         let cv = UICollectionView(frame: .zero , collectionViewLayout: layout)
-        cv.backgroundColor = .white
+        cv.backgroundColor = .lightBrownBackgroundColor
         cv.register(DrinkCell.self, forCellWithReuseIdentifier: reuseDrinkIdentifier)
         return cv
     }()
@@ -269,6 +270,6 @@ extension DrinkViewController: UICollectionViewDataSource {
 
 extension DrinkViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 110, height: 110)
+        return CGSize(width: 120, height: 120)
     }
 }

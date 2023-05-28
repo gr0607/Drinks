@@ -13,7 +13,7 @@ class DrinkCell: UICollectionViewCell {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
         iv.clipsToBounds = true
-        iv.layer.cornerRadius = 48 / 2
+        iv.layer.cornerRadius = 10
         iv.image = #imageLiteral(resourceName: "coctail")
         return iv
     }()
@@ -24,20 +24,23 @@ class DrinkCell: UICollectionViewCell {
         label.font = UIFont(name: "Palatino", size: 15)
         label.textColor = .textColor
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+
         return label
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .yellow
-
+        backgroundColor = .lightBrownBackgroundColor
+        self.layer.cornerRadius = 10
 
         addSubview(drinkNameLabel)
         addSubview(drinkImageView)
 
         drinkImageView.snp.makeConstraints { make in
             make.height.width.equalTo(90)
-            make.top.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(8)
+            make.centerX.equalToSuperview()
         }
 
         drinkNameLabel.snp.makeConstraints { make in

@@ -14,4 +14,5 @@ extension UIColor {
 
     static let lightBrownBackgroundColor = UIColor.rgb(red: 241, green: 232, blue: 230)
     static let textColor = UIColor.rgb(red: 54, green: 29, blue: 50)
+    static let secondBackgroundColor = UIColor.rgb(red: 54, green: 29, blue: 50)
 }
