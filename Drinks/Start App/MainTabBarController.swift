@@ -29,8 +29,9 @@ class MainTabBarController: UITabBarController {
         drinkVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")
 
         let favoritesVC = FavoritesViewController()
+        let navFavoritesVC = UINavigationController(rootViewController: favoritesVC)
         favoritesVC.tabBarItem.image = UIImage(systemName: "heart")
 
-        viewControllers = [navVC, favoritesVC]
+        viewControllers = [navFavoritesVC, drinkVC]
     }
 }

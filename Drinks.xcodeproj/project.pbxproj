@@ -25,6 +25,7 @@
 		84F845B52A232A0C0072319A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F845B42A232A0C0072319A /* CoreDataStack.swift */; };
 		84F845B82A232DF20072319A /* DrinkEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F845B62A232DF20072319A /* DrinkEntity+CoreDataClass.swift */; };
 		84F845B92A232DF20072319A /* DrinkEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F845B72A232DF20072319A /* DrinkEntity+CoreDataProperties.swift */; };
+		84FE772D2A2508AD009D95A0 /* FavoriteDrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FE772C2A2508AD009D95A0 /* FavoriteDrinkCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		84F845B42A232A0C0072319A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		84F845B62A232DF20072319A /* DrinkEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrinkEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		84F845B72A232DF20072319A /* DrinkEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrinkEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		84FE772C2A2508AD009D95A0 /* FavoriteDrinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDrinkCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +82,12 @@
 		8455ACC62A1DD2BA003F61A3 /* Drinks */ = {
 			isa = PBXGroup;
 			children = (
-				84F845AA2A2326220072319A /* CoreData */,
-				847DA5DA2A1E6AC600520051 /* ViewModels */,
-				847DA5FA2A1E80A100520051 /* Liked Drinks Controller */,
 				847DA5D92A1E6AB600520051 /* Start App */,
 				847DA5DC2A1E6ADC00520051 /* Models */,
+				847DA5DA2A1E6AC600520051 /* ViewModels */,
 				847DA5DD2A1E6AED00520051 /* Drink Controller */,
+				847DA5FA2A1E80A100520051 /* Liked Drinks Controller */,
+				84F845AA2A2326220072319A /* CoreData */,
 				847DA5DB2A1E6ACE00520051 /* Network Service */,
 				847DA5DE2A1E6B1100520051 /* Extensions */,
 				847DA5DF2A1E6B1B00520051 /* Supporting Files */,
@@ -167,6 +169,7 @@
 		847DA5FA2A1E80A100520051 /* Liked Drinks Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84FE772B2A250894009D95A0 /* FavoriteCell */,
 				847DA5FB2A1E80FD00520051 /* FavoritesViewCotroller.swift */,
 			);
 			path = "Liked Drinks Controller";
@@ -188,6 +191,14 @@
 				84F845B72A232DF20072319A /* DrinkEntity+CoreDataProperties.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		84FE772B2A250894009D95A0 /* FavoriteCell */ = {
+			isa = PBXGroup;
+			children = (
+				84FE772C2A2508AD009D95A0 /* FavoriteDrinkCell.swift */,
+			);
+			path = FavoriteCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +286,7 @@
 				847DA5F72A1E6D9600520051 /* AppDelegate.swift in Sources */,
 				84F845A92A2326020072319A /* Drinks.xcdatamodeld in Sources */,
 				847DA5E42A1E6B9E00520051 /* DrinkCell.swift in Sources */,
+				84FE772D2A2508AD009D95A0 /* FavoriteDrinkCell.swift in Sources */,
 				847DA5E82A1E6BB400520051 /* SplashViewController.swift in Sources */,
 				847DA5E12A1E6B6B00520051 /*  UIColor+Extensions.swift in Sources */,
 				847DA5E62A1E6BA700520051 /* DrinkViewController.swift in Sources */,
