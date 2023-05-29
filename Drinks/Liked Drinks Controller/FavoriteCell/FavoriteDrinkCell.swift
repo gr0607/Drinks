@@ -75,4 +75,16 @@ class FavoriteDrinkCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    //MARK: - Helpers methods
+
+    func configure(with favoriteDrink: DrinkEntity) {
+        guard let data = favoriteDrink.image, let image = UIImage(data: data) else { return }
+
+        self.drinkImageView.image = image
+        self.drinkNameLabel.text = favoriteDrink.name
+
+        let instruction = favoriteDrink.ingridients?.joined(separator: "," ) ?? ""
+        self.drinkIngridientsLabel.text = instruction
+    }
 }

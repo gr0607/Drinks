@@ -12,6 +12,7 @@ class SplashViewController: UIViewController {
     //MARK: - Properties
 
     private let drinkViewModel = DrinkViewModel()
+    private let coreDataStack = CoreDataStack(modelName: "Drinks")
 
     private var mainLabel: UILabel = {
         let label = UILabel()
@@ -38,6 +39,7 @@ class SplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        drinkViewModel.coreDataStack = coreDataStack
         drinkViewModel.fetchDrink()
         setupUI()
 

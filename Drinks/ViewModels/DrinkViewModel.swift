@@ -17,7 +17,7 @@ class DrinkViewModel {
     var updateScreen : (()-> (Void))?
     var reloadCollectionView: (() -> (Void))?
 
-    public var coreDataStack = CoreDataStack(modelName: "Drinks")
+    public var coreDataStack: CoreDataStack!
     public var drinkEntities = [DrinkEntity]()
 
     public var drink: Drink? 
@@ -67,8 +67,11 @@ class DrinkViewModel {
     }
 
     func refreshDrink() {
-        print("from view model")
         fetchDrink()
+    }
+
+    func likedDrinkButtonTapped() {
+        coreDataStack.saveFavotiteDrink(from: self)
     }
 
 }

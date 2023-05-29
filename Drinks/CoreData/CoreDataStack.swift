@@ -35,11 +35,23 @@ class CoreDataStack {
         do {
             try managedContext.save()
         } catch let nserror as NSError {
-            print("unresolved error")
+            print("unresolved error \(nserror)")
         }
     }
 
      func saveEntityFrom(drinkViewModel: DrinkViewModel) {
+        let _ = convertToEntity(from: drinkViewModel)
+        saveContext()
+    }
+
+    func saveFavotiteDrink(from drinkViewModel: DrinkViewModel) {
+        let favoriteEntity = FavoriteDrinkEntity(context: self.managedContext)
+        favoriteEntity.favoriteDrink = convertToEntity(from: drinkViewModel)
+        favoriteEntity.date = Date()
+        saveContext()
+    }
+
+    func convertToEntity(from drinkViewModel: DrinkViewModel) -> DrinkEntity{
         let drinkEntity = DrinkEntity(context: self.managedContext)
 
         drinkEntity.name = drinkViewModel.drinkName
@@ -48,9 +60,10 @@ class CoreDataStack {
         drinkEntity.image = drinkViewModel.drinkImage?.pngData()
         drinkEntity.ingridients = drinkViewModel.ingridients
         drinkEntity.measures = drinkViewModel.mesasures
-
-        saveContext()
+        return drinkEntity
     }
+
+
 
     func getDrinksEntity() -> [DrinkEntity] {
         let fetchRequest: NSFetchRequest<DrinkEntity> = DrinkEntity.fetchRequest()
@@ -65,7 +78,5 @@ class CoreDataStack {
             return [DrinkEntity]()
         }
     }
-
-
 
 }

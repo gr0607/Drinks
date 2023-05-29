@@ -79,6 +79,7 @@ class DrinkViewController: UIViewController {
     private lazy var likeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "like")!, for: .normal)
+        button.addTarget(self, action: #selector(likedDrinkButtonTapped), for: .touchUpInside)
         return button
     }()
 
@@ -201,6 +202,10 @@ class DrinkViewController: UIViewController {
         drinkViewModel?.reloadCollectionView = {
             self.drinksCollectionView.reloadData()
         }
+    }
+
+    @objc func likedDrinkButtonTapped() {
+        drinkViewModel?.likedDrinkButtonTapped()
     }
 
     func updateUI() {
