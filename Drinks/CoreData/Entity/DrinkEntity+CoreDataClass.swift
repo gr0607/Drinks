@@ -2,7 +2,7 @@
 //  DrinkEntity+CoreDataClass.swift
 //  Drinks
 //
-//  Created by admin on 28.05.2023.
+//  Created by admin on 29.05.2023.
 //
 //
 

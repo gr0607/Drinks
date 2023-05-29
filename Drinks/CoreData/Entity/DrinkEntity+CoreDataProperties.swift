@@ -2,7 +2,7 @@
 //  DrinkEntity+CoreDataProperties.swift
 //  Drinks
 //
-//  Created by admin on 28.05.2023.
+//  Created by admin on 29.05.2023.
 //
 //
 
@@ -16,12 +16,12 @@ extension DrinkEntity {
         return NSFetchRequest<DrinkEntity>(entityName: "DrinkEntity")
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var instructions: String?
+    @NSManaged public var date: Date?
     @NSManaged public var image: Data?
     @NSManaged public var ingridients: [String]?
+    @NSManaged public var instructions: String?
     @NSManaged public var measures: [String]?
-    @NSManaged public var date: Date?
+    @NSManaged public var name: String?
 
 }
 
