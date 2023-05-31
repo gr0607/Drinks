@@ -37,6 +37,7 @@ class FavoriteDrinkCell: UITableViewCell {
         label.text = "Vodka Vodka Vodka"
         label.font = UIFont(name: "Optima", size: 12)
         label.textColor = .textColor
+        label.numberOfLines = 0
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
 

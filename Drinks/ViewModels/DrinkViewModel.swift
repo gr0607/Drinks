@@ -17,6 +17,8 @@ class DrinkViewModel {
     var updateScreen : (()-> (Void))?
     var reloadCollectionView: (() -> (Void))?
 
+
+
     public var coreDataStack: CoreDataStack!
     public var drinkEntities = [DrinkEntity]()
 
@@ -70,8 +72,12 @@ class DrinkViewModel {
         fetchDrink()
     }
 
-    func likedDrinkButtonTapped() {
-        coreDataStack.saveFavotiteDrink(from: self)
+    func likedDrinkButtonTapped() -> String {
+        if coreDataStack.isEntityExist(from: self) {
+            return "Nice choice!!!"
+        } else {
+            return "You are already liked this coctail"
+        }
     }
 
 }
@@ -132,3 +138,4 @@ extension DrinkViewModel {
         [("Ingridients:", ingridients), ("Measure:", mesasures)]
     }
 }
+

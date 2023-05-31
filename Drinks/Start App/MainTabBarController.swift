@@ -35,6 +35,6 @@ class MainTabBarController: UITabBarController {
 
         favoritesVC.tabBarItem.image = UIImage(systemName: "heart")
 
-        viewControllers = [navFavoritesVC, drinkVC]
+        viewControllers = [navVC, navFavoritesVC]
     }
 }

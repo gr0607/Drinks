@@ -15,6 +15,7 @@ class CoreDataStack {
         self.modelName = modelName
     }
 
+    //MARK: - Init core data code
     lazy var managedContext: NSManagedObjectContext = {
         return self.storeContainer.viewContext
     }()
@@ -39,12 +40,15 @@ class CoreDataStack {
         }
     }
 
+
+    //MARK: - Work with Entities
+
      func saveEntityFrom(drinkViewModel: DrinkViewModel) {
         let _ = convertToEntity(from: drinkViewModel)
         saveContext()
     }
 
-    func saveFavotiteDrink(from drinkViewModel: DrinkViewModel) {
+    private func saveFavotiteDrink(from drinkViewModel: DrinkViewModel) {
         let favoriteEntity = FavoriteDrinkEntity(context: self.managedContext)
         favoriteEntity.favoriteDrink = convertToEntity(from: drinkViewModel)
         favoriteEntity.date = Date()
@@ -63,8 +67,6 @@ class CoreDataStack {
         return drinkEntity
     }
 
-
-
     func getDrinksEntity() -> [DrinkEntity] {
         let fetchRequest: NSFetchRequest<DrinkEntity> = DrinkEntity.fetchRequest()
         let dateDecriptor = NSSortDescriptor(key: #keyPath(DrinkEntity.date), ascending: false)
@@ -77,6 +79,24 @@ class CoreDataStack {
             print(error)
             return [DrinkEntity]()
         }
+    }
+
+    func isEntityExist(from drinkViewModel: DrinkViewModel) -> Bool {
+        let fetchRequest: NSFetchRequest<FavoriteDrinkEntity> = FavoriteDrinkEntity.fetchRequest()
+        let namePredicate = NSPredicate(format: "%K == %@", #keyPath(FavoriteDrinkEntity.favoriteDrink.name), drinkViewModel.drinkName)
+        fetchRequest.predicate = namePredicate
+        do {
+            let countResult = try self.managedContext.fetch(fetchRequest)
+            if countResult.count != 0 {
+                return false
+            } else {
+                saveFavotiteDrink(from: drinkViewModel)
+            }
+        } catch let error {
+            print(error)
+        }
+        return true
+
     }
 
 }

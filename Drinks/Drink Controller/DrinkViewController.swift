@@ -5,15 +5,6 @@
 //  Created by admin on 28.03.2023.
 //
 
-import UIKit
-
-//
-//  RandomCoctailViewController.swift
-//  Coctails
-//
-//  Created by admin on 28.03.2023.
-//
-
 private let reuseDrinkIdentifier = "DrinkCell"
 
 import UIKit
@@ -205,7 +196,8 @@ class DrinkViewController: UIViewController {
     }
 
     @objc func likedDrinkButtonTapped() {
-        drinkViewModel?.likedDrinkButtonTapped()
+       let message = drinkViewModel?.likedDrinkButtonTapped()
+        showToast(message: message, font: UIFont.italicSystemFont(ofSize: 14))
     }
 
     func updateUI() {
@@ -276,5 +268,29 @@ extension DrinkViewController: UICollectionViewDataSource {
 extension DrinkViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 120, height: 120)
+    }
+}
+
+//MARK: - ShowToast
+
+extension UIViewController {
+    
+    func showToast(message : String?, font: UIFont) {
+        
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 125, y: self.view.frame.size.height-self.view.frame.size.height / 2, width: 250, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
 }
