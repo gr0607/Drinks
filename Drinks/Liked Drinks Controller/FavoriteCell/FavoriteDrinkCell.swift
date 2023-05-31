@@ -28,7 +28,6 @@ class FavoriteDrinkCell: UITableViewCell {
         label.textColor = .textColor
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
-
         return label
     }()
 
@@ -38,9 +37,8 @@ class FavoriteDrinkCell: UITableViewCell {
         label.font = UIFont(name: "Optima", size: 12)
         label.textColor = .textColor
         label.numberOfLines = 0
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.adjustsFontSizeToFitWidth = true
-
         return label
     }()
     //MARK: - Lifecycle
@@ -68,8 +66,9 @@ class FavoriteDrinkCell: UITableViewCell {
         }
 
         drinkIngridientsLabel.snp.makeConstraints { make in
-            make.left.equalTo(drinkImageView.snp.right).offset(20)
+            make.left.equalTo(drinkImageView.snp.right).offset(20).priority(750)
             make.top.equalTo(drinkNameLabel.snp.bottom)
+            make.width.equalTo(250)
         }
     }
 
@@ -85,7 +84,12 @@ class FavoriteDrinkCell: UITableViewCell {
         self.drinkImageView.image = image
         self.drinkNameLabel.text = favoriteDrink.name
 
-        let instruction = favoriteDrink.ingridients?.joined(separator: "," ) ?? ""
+        let instruction = favoriteDrink.ingridients?.compactMap{ str in
+            var s = str
+            s.removeFirst(2)
+            return s
+        }.joined(separator: ",")
+
         self.drinkIngridientsLabel.text = instruction
     }
 }

@@ -185,6 +185,7 @@ class DrinkViewController: UIViewController {
 
     //MARK: - Logic
     @objc func refreshDrink() {
+        showLoadingView()
         drinkViewModel?.refreshDrink()
         drinkViewModel?.updateScreen = { [weak self] in
             self?.updateUI()
@@ -192,6 +193,7 @@ class DrinkViewController: UIViewController {
 
         drinkViewModel?.reloadCollectionView = {
             self.drinksCollectionView.reloadData()
+            self.dismiss(animated: true, completion: nil)
         }
     }
 
@@ -292,5 +294,21 @@ extension UIViewController {
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()
         })
+    }
+}
+
+//MARK: - Show Loading View
+
+extension DrinkViewController {
+    func showLoadingView() {
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
     }
 }
