@@ -15,9 +15,6 @@ struct Drinks: Decodable{
 struct Drink {
     let id: String
     let name: String
-    let category: String
-    let alcoholic: String
-    let glass: String
     let instructions: String
     let imageURL: String
 
@@ -39,15 +36,13 @@ struct Drink {
     let measureSix: String?
     let measureSeven: String?
     let measureEight: String?
+
 }
 
 extension Drink: Decodable {
     enum CodingKeys: String, CodingKey {
         case id = "idDrink"
         case name = "strDrink"
-        case category = "strCategory"
-        case alcoholic = "strAlcoholic"
-        case glass = "strGlass"
         case instructions = "strInstructions"
         case imageURL = "strDrinkThumb"
 

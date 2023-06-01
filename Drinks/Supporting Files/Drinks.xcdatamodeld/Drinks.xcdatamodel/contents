@@ -5,6 +5,7 @@
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="ingridients" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <attribute name="instructions" optional="YES" attributeType="String"/>
+        <attribute name="isLiked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="measures" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
@@ -13,7 +14,7 @@
         <relationship name="favoriteDrink" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DrinkEntity"/>
     </entity>
     <elements>
-        <element name="DrinkEntity" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="DrinkEntity" positionX="-63" positionY="-18" width="128" height="134"/>
         <element name="FavoriteDrinkEntity" positionX="-63" positionY="27" width="128" height="59"/>
     </elements>
 </model>

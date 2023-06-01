@@ -43,22 +43,32 @@ class CoreDataStack {
 
     //MARK: - Work with Entities
 
-     func saveEntityFrom(drinkViewModel: DrinkViewModel) {
-        let _ = convertToEntity(from: drinkViewModel)
+    func saveEntityFrom(drinkViewModel: DrinkViewModel) -> DrinkEntity{
+        let entity = convertToEntity(from: drinkViewModel)
         saveContext()
+        return entity
     }
 
-    private func saveFavotiteDrink(from drinkViewModel: DrinkViewModel) {
-        let favoriteEntity = FavoriteDrinkEntity(context: self.managedContext)
-        favoriteEntity.favoriteDrink = convertToEntity(from: drinkViewModel)
-        favoriteEntity.date = Date()
-        saveContext()
+    func changeEntityFrom(drinkViewModel: DrinkViewModel) {
+        let fetchRequest: NSFetchRequest<DrinkEntity> = DrinkEntity.fetchRequest()
+        let predicate = NSPredicate(format: "%K == %@", #keyPath(DrinkEntity.name), drinkViewModel.drinkName)
+        fetchRequest.predicate = predicate
+
+        do {
+            let results = try self.managedContext.fetch(fetchRequest)
+            let entity = results.first
+            entity?.isLiked = drinkViewModel.isLiked
+            saveContext()
+        } catch let err {
+            print("Error in changing \(err)")
+        }
     }
 
     func convertToEntity(from drinkViewModel: DrinkViewModel) -> DrinkEntity{
         let drinkEntity = DrinkEntity(context: self.managedContext)
 
         drinkEntity.name = drinkViewModel.drinkName
+        drinkEntity.isLiked = drinkViewModel.isLiked
         drinkEntity.instructions = drinkViewModel.drinkInstructions
         drinkEntity.date = Date()
         drinkEntity.image = drinkViewModel.drinkImage?.pngData()
@@ -81,22 +91,32 @@ class CoreDataStack {
         }
     }
 
-    func isEntityExist(from drinkViewModel: DrinkViewModel) -> Bool {
-        let fetchRequest: NSFetchRequest<FavoriteDrinkEntity> = FavoriteDrinkEntity.fetchRequest()
-        let namePredicate = NSPredicate(format: "%K == %@", #keyPath(FavoriteDrinkEntity.favoriteDrink.name), drinkViewModel.drinkName)
-        fetchRequest.predicate = namePredicate
+    func isFavoriteEntityExist(from drinkViewModel: DrinkViewModel, with name: String) -> Bool {
+        let fetchedRequest: NSFetchRequest<DrinkEntity> = DrinkEntity.fetchRequest()
+        if isEntityExist(from: drinkViewModel, in: fetchedRequest, with: name) {
+            return true
+        } else {
+            print("DEBUG favofirte save")
+            saveEntityFrom(drinkViewModel: drinkViewModel)
+            return false
+        }
+    }
+
+    func isEntityExist<T: NSFetchRequestResult>(from drinkViewModel: DrinkViewModel,in request: NSFetchRequest<T>, with name: String ) -> Bool{
+        
+        let namePredicate = NSPredicate(format: "%K == %@", name, drinkViewModel.drinkName)
+        request.predicate = namePredicate
         do {
-            let countResult = try self.managedContext.fetch(fetchRequest)
+            let countResult = try self.managedContext.fetch(request)
             if countResult.count != 0 {
-                return false
-            } else {
-                saveFavotiteDrink(from: drinkViewModel)
+                return true
             }
         } catch let error {
             print(error)
         }
-        return true
-
+        return false
     }
+
+    
 
 }

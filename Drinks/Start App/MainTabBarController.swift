@@ -32,6 +32,7 @@ class MainTabBarController: UITabBarController {
         let favoritesVC = FavoritesViewController()
         let navFavoritesVC = UINavigationController(rootViewController: favoritesVC)
         favoritesVC.coreDataStack = drinkViewModel?.coreDataStack
+        favoritesVC.drinkViewModel = drinkViewModel
 
         favoritesVC.tabBarItem.image = UIImage(systemName: "heart")
 

@@ -16,14 +16,6 @@ class DrinkViewController: UIViewController {
 
     public var drinkViewModel: DrinkViewModel?
 
-    private lazy var searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.placeholder = " Search..."
-        searchBar.sizeToFit()
-        searchBar.isTranslucent = false
-        return searchBar
-    }()
-
     private lazy var titleLable: UILabel = {
         let label = UILabel()
         label.text = drinkViewModel?.drinkName
@@ -120,8 +112,8 @@ class DrinkViewController: UIViewController {
         view.backgroundColor = .lightBrownBackgroundColor
 
         navigationController?.navigationBar.barTintColor = .lightBrownBackgroundColor
-        navigationItem.titleView = searchBar
-  
+        navigationController?.navigationBar.isHidden = true
+
         view.addSubview(titleLable)
         view.addSubview(imageCoctail)
         view.addSubview(instructionNameLabel)
@@ -199,7 +191,7 @@ class DrinkViewController: UIViewController {
 
     @objc func likedDrinkButtonTapped() {
        let message = drinkViewModel?.likedDrinkButtonTapped()
-        showToast(message: message, font: UIFont.italicSystemFont(ofSize: 14))
+       showToast(message: message, font: UIFont.italicSystemFont(ofSize: 14))
     }
 
     func updateUI() {
@@ -289,7 +281,7 @@ extension UIViewController {
         toastLabel.layer.cornerRadius = 10;
         toastLabel.clipsToBounds  =  true
         self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 3.0, delay: 0.1, options: .curveEaseOut, animations: {
             toastLabel.alpha = 0.0
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()

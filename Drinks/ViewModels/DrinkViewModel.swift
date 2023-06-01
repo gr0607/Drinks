@@ -22,19 +22,25 @@ class DrinkViewModel {
     public var coreDataStack: CoreDataStack!
     public var drinkEntities = [DrinkEntity]()
 
-    public var drink: Drink? 
+    public var drinkEntity: DrinkEntity?
+
+    public var drink: Drink?
+
+    public var isLiked = false
 
     public var drinkImage: UIImage? {
         didSet {
         if firstDownloaded {
                 firstDownload?()
                     firstDownloaded = false
-            coreDataStack.saveEntityFrom(drinkViewModel: self)
-            getEntities()
+                self.isLiked = false
 
+            self.drinkEntity = coreDataStack.saveEntityFrom(drinkViewModel: self)
+            getEntities()
         } else {
                 updateScreen?()
-            coreDataStack.saveEntityFrom(drinkViewModel: self)
+            self.isLiked = false
+            self.drinkEntity = coreDataStack.saveEntityFrom(drinkViewModel: self)
             getEntities()
             }
         }
@@ -69,15 +75,14 @@ class DrinkViewModel {
     }
 
     func refreshDrink() {
+        self.isLiked = false
         fetchDrink()
     }
 
     func likedDrinkButtonTapped() -> String {
-        if coreDataStack.isEntityExist(from: self) {
-            return "Nice choice!!!"
-        } else {
-            return "You are already liked this coctail"
-        }
+        self.isLiked = true
+        coreDataStack.changeEntityFrom(drinkViewModel: self)
+        return "Nice choice"
     }
 
 }
@@ -139,3 +144,8 @@ extension DrinkViewModel {
     }
 }
 
+//MARK: - From CoreDataEntity to Model
+
+extension DrinkViewModel {
+    
+}

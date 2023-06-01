@@ -2,7 +2,7 @@
 //  DrinkEntity+CoreDataProperties.swift
 //  Drinks
 //
-//  Created by admin on 29.05.2023.
+//  Created by admin on 01.06.2023.
 //
 //
 
@@ -22,6 +22,7 @@ extension DrinkEntity {
     @NSManaged public var instructions: String?
     @NSManaged public var measures: [String]?
     @NSManaged public var name: String?
+    @NSManaged public var isLiked: Bool
 
 }
 

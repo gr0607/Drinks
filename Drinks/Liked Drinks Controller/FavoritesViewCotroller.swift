@@ -13,6 +13,8 @@ private let reuseID = "FavoriteCell"
 class FavoritesViewController: UIViewController {
 
     //MARK: - Properties
+    var drinkViewModel: DrinkViewModel?
+
     private lazy var tableView: UITableView = {
         var tableView = UITableView()
        // tableView.separatorStyle = .none
@@ -23,10 +25,12 @@ class FavoritesViewController: UIViewController {
 
     public var coreDataStack: CoreDataStack!
 
-    lazy var fetchedResultController: NSFetchedResultsController<FavoriteDrinkEntity> = {
-        let fetchRequest: NSFetchRequest<FavoriteDrinkEntity> = FavoriteDrinkEntity.fetchRequest()
-        let dateSort = NSSortDescriptor(key: #keyPath(FavoriteDrinkEntity.date), ascending: false)
+    lazy var fetchedResultController: NSFetchedResultsController<DrinkEntity> = {
+        let fetchRequest: NSFetchRequest<DrinkEntity> = DrinkEntity.fetchRequest()
+        let dateSort = NSSortDescriptor(key: #keyPath(DrinkEntity.date), ascending: false)
+        let likedPredicate = NSPredicate(format: "%K == YES", #keyPath(DrinkEntity.isLiked))
         fetchRequest.sortDescriptors = [dateSort]
+        fetchRequest.predicate = likedPredicate
 
         let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                  managedObjectContext: coreDataStack.managedContext,
@@ -77,8 +81,9 @@ extension FavoritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseID,
                                                        for: indexPath) as? FavoriteDrinkCell,
-              let favoriteDrink = fetchedResultController.object(at: indexPath).favoriteDrink
-        else { return UITableViewCell() }
+              let favoriteDrink = fetchedResultController.object(at: indexPath) ?? nil
+            else {
+            return UITableViewCell() }
 
 
 
@@ -92,7 +97,11 @@ extension FavoritesViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 
 extension FavoritesViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let drink = fetchedResultController.object(at: indexPath)
+        drinkViewModel?.drinkEntity = drink
+        tabBarController?.selectedIndex = 0
+    }
 }
 
 //MARK: - NSFetchedResultsControllerDelegate
@@ -102,3 +111,4 @@ extension FavoritesViewController: NSFetchedResultsControllerDelegate {
         tableView.reloadData()
     }
 }
+
