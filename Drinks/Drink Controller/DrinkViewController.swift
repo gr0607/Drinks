@@ -18,7 +18,7 @@ class DrinkViewController: UIViewController {
 
     private lazy var titleLable: UILabel = {
         let label = UILabel()
-        label.text = drinkViewModel?.drinkName
+        label.text = drinkViewModel?.drinkEntity?.name
         label.font = UIFont(name: "Palatino", size: 35)
         label.textColor = .textColor
         label.adjustsFontSizeToFitWidth = true
@@ -27,7 +27,8 @@ class DrinkViewController: UIViewController {
 
     private lazy var imageCoctail: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = drinkViewModel?.drinkImage
+        let image = UIImage(data: (drinkViewModel?.drinkEntity?.image!)!)
+        imageView.image = image
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 16
         imageView.contentMode = .scaleAspectFill
@@ -44,7 +45,7 @@ class DrinkViewController: UIViewController {
 
     private lazy var instructionTextView: UITextView = {
         let tv = UITextView()
-        tv.text = drinkViewModel?.drinkInstructions
+        tv.text = drinkViewModel?.drinkEntity?.instructions
         tv.font = UIFont(name: "Palatino", size: 20)
         tv.backgroundColor = .lightBrownBackgroundColor
         tv.textColor = .textColor
@@ -104,6 +105,11 @@ class DrinkViewController: UIViewController {
         drinksCollectionView.dataSource = self
         drinksCollectionView.delegate = self
         setupUI()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
     }
 
     //MARK: - Helpers UI
@@ -195,9 +201,10 @@ class DrinkViewController: UIViewController {
     }
 
     func updateUI() {
-        titleLable.text = drinkViewModel?.drinkName
-        imageCoctail.image = drinkViewModel?.drinkImage
-        instructionTextView.text = drinkViewModel?.drinkInstructions
+        titleLable.text = drinkViewModel?.drinkEntity?.name
+        let image = UIImage(data: (drinkViewModel?.drinkEntity?.image!)!)
+        imageCoctail.image = image
+        instructionTextView.text = drinkViewModel?.drinkEntity?.instructions
         tableView.reloadData()
     }
 }

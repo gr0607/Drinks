@@ -22,29 +22,30 @@ class DrinkViewModel {
     public var coreDataStack: CoreDataStack!
     public var drinkEntities = [DrinkEntity]()
 
-    public var drinkEntity: DrinkEntity?
-
     public var drink: Drink?
 
     public var isLiked = false
+    public var fromFavorites = false
 
-    public var drinkImage: UIImage? {
+    public var loadingLogic: Bool = true {
         didSet {
-        if firstDownloaded {
-                firstDownload?()
+            if !fromFavorites {
+                if firstDownloaded {
+                    firstDownload?()
                     firstDownloaded = false
-                self.isLiked = false
 
-            self.drinkEntity = coreDataStack.saveEntityFrom(drinkViewModel: self)
-            getEntities()
-        } else {
-                updateScreen?()
-            self.isLiked = false
-            self.drinkEntity = coreDataStack.saveEntityFrom(drinkViewModel: self)
-            getEntities()
+                    getEntities()
+                } else {
+                    updateScreen?()
+                    getEntities()
+                }
             }
         }
     }
+
+    public var drinkEntity: DrinkEntity?
+
+    public var drinkImage: UIImage?
 
     public var drinkName: String {
         drink?.name ?? "Coctail"
@@ -58,9 +59,10 @@ class DrinkViewModel {
         drink?.imageURL ?? ""
     }
 
+
 //MARK: - Functions
 
-    func fetchDrink() {
+       func fetchDrink() {
         let url = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/random.php")!
 
         DrinkRequest.shared.execute(url) { coctail in
@@ -69,7 +71,11 @@ class DrinkViewModel {
 
 
             ImageRequest.shared.execute(imageURL) { image in
+                self.fromFavorites = false
+                self.isLiked = false
                 self.drinkImage = image
+                self.drinkEntity = self.coreDataStack.saveEntityFrom(drinkViewModel: self)
+                self.loadingLogic.toggle()
             }
         }
     }
@@ -140,12 +146,6 @@ extension DrinkViewModel {
     }
 
     var dataSourceFromViewModel: [(String, [String])] {
-        [("Ingridients:", ingridients), ("Measure:", mesasures)]
+        [("Ingridients:", drinkEntity?.ingridients ?? [""]), ("Measure:", drinkEntity?.measures ?? [""])]
     }
-}
-
-//MARK: - From CoreDataEntity to Model
-
-extension DrinkViewModel {
-    
 }

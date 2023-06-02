@@ -100,6 +100,8 @@ extension FavoritesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let drink = fetchedResultController.object(at: indexPath)
         drinkViewModel?.drinkEntity = drink
+        drinkViewModel?.fromFavorites = true
+        drinkViewModel?.loadingLogic.toggle()
         tabBarController?.selectedIndex = 0
     }
 }
